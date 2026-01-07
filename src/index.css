@@ -6,13 +6,14 @@
   --orange-color: #e9a23b;
   --light-green-color: #a0ecb1;
   --green-color: #32d657;
-  --light-pink-color: #f7d4d3;
-  --light-red-color: #dd524c;
+  --light-red-color: #f7d4d3;
+  --red-color: #dd524c;
   --light-grey-color: #e3e8ef;
   --dark-grey-color: #97a3b6;
   --blue-color: #3662e3;
   --grey-transparent-color: #00000033;
   --text-color: #030616;
+  --light-text-color: #212936;
 }
 
 /* Reset some defaults styling */
@@ -31,7 +32,8 @@ body {
 /* Mobile First Approach */
 /* TaskList component */
 .task-list,
-.task-list__item {
+.task-list__item,
+.task-list__texts {
   display: flex;
 }
 
@@ -43,7 +45,6 @@ body {
 /* Task component */
 .task-list__item {
   box-sizing: border-box;
-  background-color: var(--yellow-color);
   font-size: 1.25rem;
   align-items: center;
   column-gap: 1em;
@@ -63,16 +64,63 @@ body {
   background-color: var(--light-white-color);
 }
 
+.task-list__texts {
+  flex-direction: column;
+  gap: 0.4em;
+  width: 100%;
+}
+
 .task-list__title {
   font-size: inherit;
   font-weight: 600;
 }
 
+.task-list__description {
+  max-width: 60%;
+  color: var(--light-text-color);
+  font-size: 1rem;
+  font-weight: 300;
+}
+
 .task-list__state {
-  background-color: var(--orange-color);
   margin-left: auto;
 }
 
 .task-list__state > img {
   display: block;
+}
+
+/* Task - Modifiers */
+.task-list__icon--align-start {
+  align-self: flex-start;
+}
+
+/* Task Items Colors */
+.task-list__item--completed {
+  background-color: var(--light-green-color);
+}
+
+.task-list__item--progress {
+  background-color: var(--yellow-color);
+}
+
+.task-list__item--canceled {
+  background-color: var(--light-red-color);
+}
+
+.task-list__item--uninitialized {
+  background-color: var(--light-grey-color);
+}
+
+/* Task States Colors */
+.task-list__state--completed {
+  background-color: var(--green-color);
+}
+
+.task-list__state--progress {
+  background-color: var(--orange-color);
+}
+
+.task-list__state--canceled {
+  background-color: var(--red-color);
 }
