@@ -1,0 +1,78 @@
+/* Global variables */
+:root {
+  --light-white-color: #f8fafc;
+  --yellow-color: #f5d565;
+  --light-yellow-color: #f5e8d5;
+  --orange-color: #e9a23b;
+  --light-green-color: #a0ecb1;
+  --green-color: #32d657;
+  --light-pink-color: #f7d4d3;
+  --light-red-color: #dd524c;
+  --light-grey-color: #e3e8ef;
+  --dark-grey-color: #97a3b6;
+  --blue-color: #3662e3;
+  --grey-transparent-color: #00000033;
+  --text-color: #030616;
+}
+
+/* Reset some defaults styling */
+body,
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  color: var(--text-color);
+}
+
+/* Mobile First Approach */
+/* TaskList component */
+.task-list,
+.task-list__item {
+  display: flex;
+}
+
+.task-list {
+  flex-direction: column;
+  gap: 1.25em;
+}
+
+/* Task component */
+.task-list__item {
+  box-sizing: border-box;
+  background-color: var(--yellow-color);
+  font-size: 1.25rem;
+  align-items: center;
+  column-gap: 1em;
+  border-radius: 1em;
+  padding: 0.8em;
+}
+
+.task-list__icon,
+.task-list__state {
+  box-sizing: border-box;
+  padding: 0.6em;
+  border-radius: 0.75em;
+}
+
+.task-list__icon {
+  line-height: 1;
+  background-color: var(--light-white-color);
+}
+
+.task-list__title {
+  font-size: inherit;
+  font-weight: 600;
+}
+
+.task-list__state {
+  background-color: var(--orange-color);
+  margin-left: auto;
+}
+
+.task-list__state > img {
+  display: block;
+}
