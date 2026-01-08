@@ -34,9 +34,7 @@ body {
 .app-container {
   box-sizing: border-box;
   max-width: 552px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 2.75em;
+  margin: 2.75em auto;
 }
 
 /* Header component */
@@ -191,4 +189,11 @@ body {
 .add-button__title {
   font-size: inherit;
   font-weight: 600;
+}
+
+/* Breakpoints */
+@media screen and (max-width: 640px) {
+  .app-container {
+    margin: 2.75em;
+  }
 }
