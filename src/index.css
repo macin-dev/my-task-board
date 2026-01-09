@@ -14,12 +14,15 @@
   --grey-transparent-color: #00000033;
   --text-color: #030616;
   --light-text-color: #212936;
+  --border-input-color: #cdd5e0;
+  --delete-btn-color: #fef7ee;
 }
 
 /* Reset some defaults styling */
 body,
 h1,
 h2,
+h3,
 p {
   margin: 0;
 }
@@ -70,7 +73,11 @@ body {
 .task-list,
 .task-list__item,
 .task-list__texts,
-.add-button {
+.add-button,
+.modal-task__header,
+.modal-task__icons,
+.modal-task__input-status label,
+.modal-task__form {
   display: flex;
 }
 
@@ -90,7 +97,7 @@ body {
 }
 
 .task-list__icon,
-.task-list__state {
+.task-state {
   box-sizing: border-box;
   padding: 0.6em;
   border-radius: 0.75em;
@@ -119,13 +126,14 @@ body {
   font-weight: 300;
 }
 
-.task-list__state {
+.task-list__item .task-state {
   margin-left: auto;
 }
 
-.task-list__state > img,
+.task-state > img,
 .add-button__icon > img,
-.header__button > img {
+.header__button > img,
+.modal-task__close-modal > img {
   display: block;
 }
 
@@ -152,15 +160,15 @@ body {
 }
 
 /* Task States Colors */
-.task-list__state--completed {
+.task-state__box--completed {
   background-color: var(--green-color);
 }
 
-.task-list__state--progress {
+.task-state__box--progress {
   background-color: var(--orange-color);
 }
 
-.task-list__state--canceled {
+.task-state__box--canceled {
   background-color: var(--red-color);
 }
 
@@ -189,6 +197,140 @@ body {
 .add-button__title {
   font-size: inherit;
   font-weight: 600;
+}
+
+/* ModalTask component */
+.modal-task {
+  font-size: 1rem;
+  border-radius: 0.75em;
+  padding: 1em;
+}
+
+.modal-task__header {
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5em;
+}
+
+.modal-task__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.modal-task__close-modal {
+  font-size: inherit;
+  border: 1px solid var(--light-grey-color);
+  background: none;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.modal-task__form {
+  flex-direction: column;
+  row-gap: 1.25em;
+}
+
+.modal-task__form-label,
+.modal-task__subtitle {
+  font-size: 0.75rem;
+  color: var(--dark-grey-color);
+  margin-bottom: 0.5em;
+}
+
+.modal-task__form-label {
+  display: inline-block;
+}
+
+.modal-task__subtitle {
+  font-weight: 400;
+}
+
+.modal-task__text-group input[type="text"],
+.modal-task__text-group textarea {
+  font-size: inherit;
+  border: 1px solid var(--border-input-color);
+  border-radius: 0.5em;
+  padding: 0.75em;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modal-task__text-group input[type="text"] {
+  margin-bottom: 1.25em;
+}
+
+.modal-task__text-group textarea {
+  height: 169px;
+  resize: none;
+  vertical-align: bottom;
+}
+
+.modal-task__icons {
+  gap: 0.75em;
+}
+
+.modal-task__status {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 0.75em;
+  row-gap: 0.5em;
+}
+
+.modal-task__form-buttons .modal-task__form-btn:not(:last-child) {
+  margin-right: 1em;
+}
+
+/* IconInput component */
+.modal-task__input-icon {
+  font-size: 1.25rem;
+  display: inline-block;
+  padding: 0.6em;
+  border-radius: 0.6em;
+  background-color: var(--light-grey-color);
+}
+
+.modal-task__input-icon label {
+  display: block;
+  line-height: 1;
+}
+
+.modal-task__input-icon input[type="radio"],
+.modal-task__input-status input[type="radio"] {
+  display: none;
+}
+
+/* StatusInput component */
+.modal-task__input-status {
+  border: 2px solid var(--light-grey-color);
+  border-radius: 0.75em;
+  padding: 0.125em;
+}
+
+.modal-task__input-status label {
+  align-items: center;
+  column-gap: 0.75em;
+}
+
+/* FormButton component */
+.modal-task__form-btn {
+  font-size: 0.875em;
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.8571428571em;
+  border: none;
+  padding: 0.5714285714em 1.7142857143em;
+  color: var(--delete-btn-color);
+  border-radius: 1.2857142857em;
+  cursor: pointer;
+}
+
+.modal-task__form-btn:first-child {
+  background-color: var(--dark-grey-color);
+}
+
+.modal-task__form-btn:nth-child(2) {
+  background-color: var(--blue-color);
 }
 
 /* Breakpoints */

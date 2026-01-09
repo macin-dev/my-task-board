@@ -1,26 +1,5 @@
-const taskStatesArr = {
-  completed: {
-    src: "/src/assets/Done_round_duotone.svg",
-    alt: "done round icon",
-    classNames: ["task-list__item--completed", "task-list__state--completed"],
-  },
-  progress: {
-    src: "/src/assets/Time_atack_duotone.svg",
-    alt: "time atack icon",
-    classNames: ["task-list__item--progress", "task-list__state--progress"],
-  },
-  canceled: {
-    src: "/src/assets/close_ring_duotone.svg",
-    alt: "close ring icon",
-    classNames: ["task-list__item--canceled", "task-list__state--canceled"],
-  },
-  uninitialized: {
-    classNames: [
-      "task-list__item--uninitialized",
-      "task-list__state--uninitialized",
-    ],
-  },
-};
+import TaskState from "./TaskState";
+import { taskStatesArr } from "../data/data";
 
 export default function Task({ icon, title, taskState, description }) {
   const getStateColor = taskStatesArr[taskState]?.classNames;
@@ -41,12 +20,13 @@ export default function Task({ icon, title, taskState, description }) {
       </div>
 
       {taskState != "uninitialized" && (
-        <div className={`task-list__state ${getStateColor[1]}`}>
-          <img
-            src={taskStatesArr[taskState]?.src}
-            alt={taskStatesArr[taskState]?.alt}
-          />
-        </div>
+        <TaskState
+          img={{
+            src: taskStatesArr[taskState].src,
+            alt: taskStatesArr[taskState].alt,
+          }}
+          setColor={getStateColor[1]}
+        />
       )}
     </div>
   );

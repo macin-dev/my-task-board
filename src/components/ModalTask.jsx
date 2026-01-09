@@ -12,21 +12,33 @@ export default function ModalTask() {
     <section className="modal-task">
       <div className="modal-task__header">
         <h2 className="modal-task__title">Task details</h2>
-        <button type="button">
+        <button type="button" className="modal-task__close-modal">
           <img src="/src/assets/close_ring_duotone-1.svg" alt="close icon" />
         </button>
       </div>
 
       <main className="modal-task__body">
         <form className="modal-task__form">
-          <label htmlFor="taskName">Task name</label>
-          <input type="text" id="taskName" placeholder="Walk the dog 🐶" />
+          <div className="modal-task__text-group">
+            <label className="modal-task__form-label" htmlFor="taskName">
+              Task name
+            </label>
+            <input
+              type="text"
+              id="taskName"
+              name="taskName"
+              placeholder="Walk the dog 🐶"
+            />
 
-          <label htmlFor="description">Description</label>
-          <textarea
-            id="description"
-            placeholder="Enter a short description"
-          ></textarea>
+            <label className="modal-task__form-label" htmlFor="description">
+              Description
+            </label>
+            <textarea
+              id="description"
+              placeholder="Enter a short description"
+              name="description"
+            ></textarea>
+          </div>
 
           <div className="modal-task__icon-group">
             <h3 className="modal-task__subtitle">Icon</h3>
@@ -36,9 +48,9 @@ export default function ModalTask() {
           <div className="modal-task__status-group">
             <h3 className="modal-task__subtitle">Status</h3>
             <div className="modal-task__status">
-              <StatusInput value="In progress" />
-              <StatusInput value="Completed" />
-              <StatusInput value="Won't do" />
+              <StatusInput value="In progress" taskState="progress" />
+              <StatusInput value="Completed" taskState="completed" />
+              <StatusInput value="Won't do" taskState="canceled" />
             </div>
           </div>
 
@@ -48,7 +60,7 @@ export default function ModalTask() {
               img={{ src: "/src/assets/Trash.svg", alt: "trash icon" }}
             />
             <FormButton
-              text="Delete"
+              text="Save"
               img={{
                 src: "/src/assets/Done_round.svg",
                 alt: "Done round icon",
