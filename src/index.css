@@ -32,6 +32,22 @@ body {
   color: var(--text-color);
 }
 
+img {
+  display: block;
+}
+
+/* Reusable styles */
+.task-list,
+.task-list__item,
+.task-list__texts,
+.add-button,
+.modal-task__header,
+.modal-task__icons,
+.modal-task__input-status label,
+.modal-task__form {
+  display: flex;
+}
+
 /* Mobile First Approach */
 /* App component*/
 .app-container {
@@ -70,17 +86,6 @@ body {
 }
 
 /* TaskList component */
-.task-list,
-.task-list__item,
-.task-list__texts,
-.add-button,
-.modal-task__header,
-.modal-task__icons,
-.modal-task__input-status label,
-.modal-task__form {
-  display: flex;
-}
-
 .task-list {
   flex-direction: column;
   gap: 1.25em;
@@ -128,13 +133,6 @@ body {
 
 .task-list__item .task-state {
   margin-left: auto;
-}
-
-.task-state > img,
-.add-button__icon > img,
-.header__button > img,
-.modal-task__close-modal > img {
-  display: block;
 }
 
 /* Task - Modifiers */
