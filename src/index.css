@@ -16,6 +16,7 @@
   --light-text-color: #212936;
   --border-input-color: #cdd5e0;
   --delete-btn-color: #fef7ee;
+  --modal-background: #ffffff;
 }
 
 /* Reset some defaults styling */
@@ -44,7 +45,8 @@ img {
 .modal-task__header,
 .modal-task__icons,
 .modal-task__input-status label,
-.modal-task__form {
+.modal-task__form,
+.modal {
   display: flex;
 }
 
@@ -198,7 +200,20 @@ img {
 }
 
 /* ModalTask component */
+.modal {
+  box-sizing: border-box;
+  width: 100vw;
+  min-height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: var(--grey-transparent-color);
+  position: absolute;
+  padding: 1em;
+}
+
 .modal-task {
+  max-width: 628px;
+  background-color: var(--modal-background);
   font-size: 1rem;
   border-radius: 0.75em;
   padding: 1em;
@@ -332,6 +347,13 @@ img {
 }
 
 /* Breakpoints */
+@media screen and (min-width: 601px) {
+  /* ModalTask component */
+  .modal {
+    justify-content: flex-end;
+  }
+}
+
 @media screen and (max-width: 640px) {
   .app-container {
     margin: 2.75em;

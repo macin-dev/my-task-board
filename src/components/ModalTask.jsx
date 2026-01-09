@@ -3,7 +3,7 @@ import StatusInput from "./StatusInput";
 import FormButton from "./FormButton";
 import { iconsData } from "../data/data";
 
-export default function ModalTask() {
+export default function ModalTask({ handleToggleModal }) {
   const iconInputElements = iconsData.map((el) => {
     return <IconInput key={el.key} id={el.key} value={el.value} />;
   });
@@ -12,7 +12,11 @@ export default function ModalTask() {
     <section className="modal-task">
       <div className="modal-task__header">
         <h2 className="modal-task__title">Task details</h2>
-        <button type="button" className="modal-task__close-modal">
+        <button
+          type="button"
+          className="modal-task__close-modal"
+          onClick={handleToggleModal}
+        >
           <img src="/src/assets/close_ring_duotone-1.svg" alt="close icon" />
         </button>
       </div>
