@@ -298,12 +298,12 @@ img {
 .modal-task__input-icon {
   font-size: 1.25rem;
   display: inline-block;
-  padding: 0.6em;
   border-radius: 0.6em;
   background-color: var(--light-grey-color);
 }
 
 .modal-task__input-icon label {
+  padding: 0.6em;
   display: block;
   line-height: 1;
 }
@@ -311,6 +311,10 @@ img {
 .modal-task__input-icon input[type="radio"],
 .modal-task__input-status input[type="radio"] {
   display: none;
+}
+
+.modal-task__input-icon--selected {
+  background-color: var(--yellow-color) !important;
 }
 
 /* StatusInput component */
