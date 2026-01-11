@@ -17,6 +17,10 @@
   --border-input-color: #cdd5e0;
   --delete-btn-color: #fef7ee;
   --modal-background: #ffffff;
+  /* Hover */
+  --dark-grey-hover-color: #697280;
+  --dark-blue-hover-color: #294cb7;
+  --dark-yellow-hover-color: #d6cab8;
 }
 
 /* Reset some defaults styling */
@@ -101,6 +105,19 @@ img {
   column-gap: 1em;
   border-radius: 1em;
   padding: 0.8em;
+  animation: fadeIn 1s ease-out 0.5s both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .task-list__icon,
@@ -191,6 +208,12 @@ img {
   border: none;
   margin-top: 1.25em;
   cursor: pointer;
+  transition: 0.3s all ease-in-out;
+  animation: fadeIn 1s ease-out 0.8s both;
+}
+
+.add-button:hover {
+  background-color: var(--dark-yellow-hover-color);
 }
 
 .add-button__icon {
@@ -224,6 +247,19 @@ img {
   font-size: 1rem;
   border-radius: 0.75em;
   padding: 1em;
+  animation: slide-in 0.3s ease both;
+  will-change: transform;
+}
+
+/* From off-screen to on-screen */
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
 }
 
 .modal-task__header {
@@ -244,6 +280,11 @@ img {
   border-radius: 0.5em;
   padding: 0.5em;
   cursor: pointer;
+}
+
+.modal-task__close-modal:hover {
+  background-color: var(--light-grey-color);
+  transition: 0.2s all ease-in-out;
 }
 
 .modal-task__form {
@@ -360,14 +401,23 @@ img {
   color: var(--delete-btn-color);
   border-radius: 1.2857142857em;
   cursor: pointer;
+  transition: 0.2s all ease-in-out;
 }
 
 .modal-task__form-btn:first-child {
   background-color: var(--dark-grey-color);
 }
 
-.modal-task__form-btn:nth-child(2) {
-  background-color: var(--blue-color) !important;
+.modal-task__form-btn:last-child {
+  background-color: var(--blue-color);
+}
+
+.modal-task__form-btn:first-child:hover {
+  background-color: var(--dark-grey-hover-color);
+}
+
+.modal-task__form-btn:last-child:hover {
+  background-color: var(--dark-blue-hover-color);
 }
 
 /* Breakpoints */
