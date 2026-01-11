@@ -106,7 +106,7 @@ img {
 .task-list__icon,
 .task-state {
   box-sizing: border-box;
-  padding: 0.6em;
+  padding: 0.75em;
   border-radius: 0.75em;
 }
 
@@ -135,6 +135,11 @@ img {
 
 .task-list__item .task-state {
   margin-left: auto;
+}
+
+/* TaskState component */
+.task-state {
+  font-size: 1rem;
 }
 
 /* Task - Modifiers */
@@ -321,12 +326,20 @@ img {
 .modal-task__input-status {
   border: 2px solid var(--light-grey-color);
   border-radius: 0.75em;
-  padding: 0.125em;
+  padding: 0.125em 0.5em 0.125em 0.125em;
 }
 
 .modal-task__input-status label {
   align-items: center;
   column-gap: 0.75em;
+}
+
+.modal-task__input-status img {
+  margin-left: auto;
+}
+
+.modal-task__input-status--selected {
+  border-color: var(--blue-color);
 }
 
 /* FormButton component */
@@ -347,7 +360,7 @@ img {
 }
 
 .modal-task__form-btn:nth-child(2) {
-  background-color: var(--blue-color);
+  background-color: var(--blue-color) !important;
 }
 
 /* Breakpoints */

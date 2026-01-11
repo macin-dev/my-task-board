@@ -6,6 +6,7 @@ import { iconsData } from "../data/data";
 
 export default function ModalForm() {
   const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedStatus, setSelectedStatus] = useState(null);
 
   const iconInputElements = iconsData.map((el) => {
     return (
@@ -50,9 +51,24 @@ export default function ModalForm() {
       <div className="modal-task__status-group">
         <h3 className="modal-task__subtitle">Status</h3>
         <div className="modal-task__status">
-          <StatusInput value="In progress" taskState="progress" />
-          <StatusInput value="Completed" taskState="completed" />
-          <StatusInput value="Won't do" taskState="canceled" />
+          <StatusInput
+            value="In progress"
+            taskState="progress"
+            selectedStatus={selectedStatus}
+            handleSelectedStatus={setSelectedStatus}
+          />
+          <StatusInput
+            value="Completed"
+            taskState="completed"
+            selectedStatus={selectedStatus}
+            handleSelectedStatus={setSelectedStatus}
+          />
+          <StatusInput
+            value="Won't do"
+            taskState="canceled"
+            selectedStatus={selectedStatus}
+            handleSelectedStatus={setSelectedStatus}
+          />
         </div>
       </div>
 
